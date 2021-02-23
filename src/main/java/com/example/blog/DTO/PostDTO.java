@@ -3,7 +3,7 @@ package com.example.blog.DTO;
 import java.time.LocalDateTime;
 
 public class PostDTO {
-
+    private Long id;
     private String title;
     private String content;
     private String image;
@@ -13,12 +13,16 @@ public class PostDTO {
     public PostDTO() {
     }
 
-    public PostDTO(String title, String content, String image, String category, LocalDateTime creationDate) {
+    public PostDTO(Long id, String title, String content, String image, String category, LocalDateTime creationDate) {
         this.title = title;
         this.content = content;
         this.image = image;
         this.category = category;
         this.creationDate = creationDate;
+    }
+
+    public Long getId(){
+        return id;
     }
 
     public String getTitle() {
@@ -39,6 +43,10 @@ public class PostDTO {
 
     public LocalDateTime getCreationDate() {
         return creationDate;
+    }
+
+    public void setId(){
+        this.id = id;
     }
 
     public void setTitle(String title) {

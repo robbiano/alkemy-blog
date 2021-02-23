@@ -19,10 +19,10 @@ public class PostController {
 
     @GetMapping
     public List<PostDTO> getAll() {
-        return postRepository
-                .findAll()
-                .stream()
-                .map(subject -> new SubjectDTO(subject.getId(), subject.getName(), subject.getTime(), subject.getTeacher(), subject.getAvailability())).collect(toList());
+    return postRepository
+    .findAll()
+    .stream()
+    .map(post -> new PostDTO(post.getId(), post.getTitle(), post.getContent(), post.getImage(), post.getCategory(), post.getCreationDate())).collect(toList());
     }
 
 }
