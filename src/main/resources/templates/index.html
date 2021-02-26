@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <!--Boostrap css-->
+    <Link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+<div class="container">
+    <div>
+        <a href="/save/null" class="btn btn-primary">agregar</a>
+    </div>
+    <div th:switch="${post}">
+
+
+            <h2>Post</h2>
+            <div th:each="post : ${post}">
+                <h5 th:text="${post.title}"></h5>
+                <h5 th:text="${post.content}"></h5>
+                <h5 th:text="${post.category}"></h5>
+                <h5 th:text="${post.creationDate}"></h5>
+            </div>
+
+    </div>
+</div>
+</body>
+</html>

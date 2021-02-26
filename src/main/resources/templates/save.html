@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <!--Boostrap css-->
+    <Link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@(/css/bootstrap.css)">
+</head>
+<body>
+    <div class="container">
+        <form action="#" th:action="@{/save}" class="form-group" th:object=${post} method="post">
+            <div class="form-group">
+                <label for="title">title</label>
+                <input type="text" class="form-control" id="title" name="title">
+            </div>
+            <div class="form-group">
+                <label for="content">content</label>
+                <input type="text" class="form-control" id="content" name="content">
+            </div>
+            <div class="form-group">
+                <label for="category">category</label>
+                <input type="text" class="form-control" id="category" name="category">
+            </div>
+            <div class="form-group">
+                <label for="creationDate">creation date</label>
+                <input type="text" class="form-control" id="creationDate" name="creationDate">
+            </div>
+            <button type="submit" class="btn btn-success">guardar</button>
+        </form>
+    </div>
+
+</body>
+</html>

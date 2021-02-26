@@ -13,9 +13,9 @@ public class PostDTO {
     public PostDTO() {
     }
 
-    public PostDTO(Long id, String title, String content, String image, String category, LocalDateTime creationDate) {
+    public PostDTO(Long id, String title, String image, String category, LocalDateTime creationDate) {
+        this.id = id;
         this.title = title;
-        this.content = content;
         this.image = image;
         this.category = category;
         this.creationDate = creationDate;
