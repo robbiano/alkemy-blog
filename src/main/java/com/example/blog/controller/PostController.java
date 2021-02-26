@@ -58,7 +58,7 @@ public class PostController {
         return new ResponseEntity<>("post created", HttpStatus.CREATED);
     }
 
-    /*@PatchMapping("/{id}")
+    @PatchMapping("/{id}")
     public ResponseEntity<Object> parcialUpdate(@PathVariable("Id") Long id, @RequestBody PostDTO postDTO){
 
         Optional<Post> validPost = postRepository.findById(id);
@@ -75,13 +75,9 @@ public class PostController {
 
         postRepository.save(post);
         return new ResponseEntity<>( "post was edited", HttpStatus.CREATED);
-    }*/
-
-    @PatchMapping("/{îd}")
-    public @ResponseBody ResponseEntity<String> patch((@PathVariable("id") Long id, String value) {
-        
-        return new ResponseEntity<String>("PATCH Response", HttpStatus.OK);
     }
+
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deletePost(@PathVariable("id") Long id){
