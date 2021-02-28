@@ -6,10 +6,8 @@ import com.example.blog.Repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,8 +48,17 @@ public class PostController {
     @PostMapping
     public ResponseEntity<Object> createPost(@RequestBody PostDTO postDTO ){
 
-        if (postDTO.getTitle() == "" ||  postDTO.getContent() == "" || postDTO.getImage() == "" || postDTO.getCategory() == "") {
-            return new ResponseEntity<>("error missing data",HttpStatus.FORBIDDEN);
+        if (postDTO.getTitle() == null){
+            return new ResponseEntity<>("error  title data missing",HttpStatus.BAD_REQUEST);
+        }
+        if (postDTO.getContent() == null){
+            return new ResponseEntity<>("error  content data missing",HttpStatus.BAD_REQUEST);
+        }
+        if (postDTO.getImage() == null){
+            return new ResponseEntity<>("error  image data missing",HttpStatus.BAD_REQUEST);
+        }
+        if (postDTO.getCategory() == null){
+            return new ResponseEntity<>("error category data missing",HttpStatus.BAD_REQUEST);
         }
         Post newPost = new Post(postDTO.getId(), postDTO.getTitle(), postDTO.getContent(),postDTO.getImage(),postDTO.getCategory());
         postRepository.save(newPost);
@@ -76,8 +83,6 @@ public class PostController {
         postRepository.save(post);
         return new ResponseEntity<>( "post was edited", HttpStatus.CREATED);
     }
-
-
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deletePost(@PathVariable("id") Long id){
